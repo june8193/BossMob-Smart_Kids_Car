@@ -1,0 +1,2 @@
+cd C:\Users\ÀåÁØ\Desktop\jayjun\º¸½º¸÷\touch_window
+pscp -pw june654 C:\Users\ÀåÁØ\Desktop\jayjun\º¸½º¸÷\touch_window\files/* jun@169.254.202.201:/home/jun/mjpg/mjpg-streamer/mjpg-streamer-experimental/plugins/input_opencv/filters/cvfilter_py/files

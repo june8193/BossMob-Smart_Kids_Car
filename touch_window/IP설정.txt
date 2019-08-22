@@ -1,0 +1,6 @@
+touch_window.py
+Server_IP = 장준 노트북
+Web_URL = 동건 노트북
+
+send.bat
+장준 노트북으로 수정

@@ -1,0 +1,259 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BossMob</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="/static/music/siren.mp3">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="save" content="history">
+    <link rel = "Shortcut Icon" href="{% static 'favicon.ico' %} ">
+    <!-- load MUI -->
+    <link href="//cdn.muicss.com/mui-0.6.9/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="//cdn.muicss.com/mui-0.6.9/js/mui.min.js"></script>
+    
+    <style type="text/css">
+      html {
+        height: 100%;
+        width:  100%;
+        overflow: hidden;
+      }
+      body {
+        height: 100%;
+        width:  100%;
+      }
+    
+      #div_streamer {
+        background: url(http://192.168.43.43:8080/?action=stream),
+         url(http://192.168.43.49:8080/?action=stream);
+        background-repeat : no-repeat,no-repeat;
+        background-position: 2% 70% , right center;
+        background-attachment : fixed,fixed;
+        background-size: auto 73%,auto 73%;
+        width:  100%;
+        height:  100%;
+        position:left,right;
+      }
+
+      #title{
+        text-align: center;
+        letter-spacing: 0.5em;
+        /*font-size : 25px;
+        font-family:"Fantasy";*/
+      }
+      #border{
+        width: 100%;
+        height: 700px;
+        
+        border: 3px solid #000;
+      }
+
+
+    </style>
+    <style>
+      img { display: block; margin: 0px auto; }
+    </style>
+    <style>
+      #style2{border:5px solid red}
+    </style>
+    <div id="hostip" style="display:none;">{{hostip}}</div>
+    <div id="maincamip" style="display:none;">{{maincamip}}</div>
+    <div id="babycamip" style="display:none;">{{babycamip}}</div>
+    <div id="testip" style="display:none;">{{testip}}</div>
+
+
+
+  </head>
+
+  <body>
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+    if ($("#wtype").val() == "build_edit") {
+ 
+        //같은 의미(propertyName, value 둘 다 따옴표로 감싸줘야 함)
+        $("#divBtnDelete").css("display", "inline");
+ 
+        //같은 의미(일반적인 style 작성방법)
+        // $("#divBtnDelete").css({
+        //     display: "inline"
+        // });
+ 
+    };
+    })
+
+  </script>
+  <script type="text/javascript">
+    var timerid7; 
+    timerid7 = setInterval(mmm7, 3000); 
+    function mmm7(){
+    // $(".jumbotron text-center").load(window.location.href +".jumbotron text-center h3");
+    $("#name2").load(window.location.href +"#name2 h1"); 
+    }
+  </script> 
+  <script type="text/javascript">
+    var a;
+    var timerid1; 
+    timerid1 = setInterval(mmm, 300); 
+    function mmm(){
+      // $(".jumbotron text-center").load(window.location.href +".jumbotron text-center h3");
+      $("#name").load(window.location.href +"#name h3");
+      a = document.getElementById("logo").innerText; 
+      if(a=='OUT'){
+        $("#move").trigger("click"); 
+        $("#playsound").trigger("click");
+        $("#start2").trigger("click");  
+        $("#stop1").trigger("click"); 
+      
+      }
+    }
+
+    function StartClock1() {
+      timerid1 = setInterval(mmm, 300); 
+    }
+
+    function StopClock1() {
+      clearInterval(timerid1);
+    }
+  </script>
+  
+  <script type="text/javascript">
+    var a2;
+    var timerid2; 
+    
+    function mmm2(){
+      // $(".jumbotron text-center").load(window.location.href +".jumbotron text-center h3");
+      $("#name").load(window.location.href +"#name h3");
+      a2 = document.getElementById("logo").innerText;
+      if(a2 ==''){
+        $("#stopsound").trigger("click");
+        $("#start1").trigger("click");
+        $("#stop2").trigger("click");
+      }
+    }
+
+    function StartClock2() {
+      timerid2 = setInterval(mmm2, 300); 
+    }
+
+    function StopClock2() {
+      clearInterval(timerid2);
+    }
+  </script>
+  
+  <script type="text/javascript">
+    function playsound(){   
+      document.getElementById("sound").innerHTML='<audio autoplay="autoplay" loop><source src="/static/music/siren.mp3" type="audio/mpeg"/></audio>';
+    }
+
+    function stopsound(){   
+      document.getElementById("sound").innerHTML='';
+    }   
+
+    function move(){
+      setTimeout(function() {
+        // location.href='http://192.168.43.138:8000/?action=main'; 
+        var a = document.getElementById("hostip").innerText;
+        location.href='http://'+ a +'/?action=main';   
+      }, 3000);  
+    }
+
+    function move1(){
+      var a1 = document.getElementById("hostip").innerText;
+      location.href='http://'+ a1 +'/?action=main';   
+    }
+
+    function move2(){
+      var a2 = document.getElementById("hostip").innerText;
+      location.href='http://'+ a2 +'/?action=baby';   
+    }
+
+    var testip = document.getElementById("testip").innerText;
+
+  </script>
+  <script type="text/javascript">
+    var a3;
+    var a4;
+    var timerid3;
+    a3 = document.getElementById ("maincamip").innerText;
+    a4 = document.getElementById ("babycamip").innerText;
+    b1 = "'<img src=";
+    b2 = "width=100% height=100%/>'";
+    timerid3 = setTimeout(mmm3,1);
+    function mmm3(){
+      document.getElementById("maincam").innerHTML = b1+a3+b2;
+      document.getElementById("babycam").innerHTML = b1+a4+b2;
+    }
+  </script>
+  
+  <div id="sound"></div>
+
+  <div class="jumbotron text-center">
+    
+    <!-- <h1 style="font-size:30px">BossMob</h1> -->
+    <div id = "name">
+      <h3 id="logo" style="float:center; font-size:100px;" class="bg-danger text-white">{{message}}</h3>   
+    </div>
+  </div>
+
+
+
+  <div id="divBtnDelete" style="display:none;">
+  <button id = "playsound" onclick="playsound();"></button>
+  <button id = "stopsound" onclick="stopsound();"></button>  
+  <button id = "start1" onclick="StartClock1();"></button>  
+  <button id = "start2" onclick="StartClock2();"></button>  
+  <button id = "stop1" onclick="StopClock1();"></button>  
+  <button id = "stop2" onclick="StopClock2();"></button>  
+  <button id = "move" onclick="move();">move</button>
+  </div>
+  <div id = "name2">
+    <h1 id="logo2" style="float:center; font-size:100px;" >{{babystate}}</h1>   
+  </div>
+   <div class="container">
+     <div class="row">
+      <div class="col-md-6" style=style2>
+        <!-- <h4 id="title">Main</h4> -->
+
+        <img src="static/image/car2.png" width="12%" height="12%" alt="My Image">
+        <div class="container">
+
+        <div id = "maincam">
+            <!-- <img src="http://192.168.0.29:8080/?action=stream" width=100% height=100%/> -->
+        </div>
+
+       <button type="button" class="btn btn-outline-dark btn-block btn-lg" onclick="move1();"><img src="static/image/view.png" width="12%" height="12%" alt="My Image"></button>
+ 
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <!-- <h4 id="title">Baby</h4> -->
+        <img src="static/image/smiling-baby.png" width="12%" height="12%" alt="My Image">
+          <div class="container">
+          <div id ="babycam">
+          
+          </div>
+          <button type="button" class="btn btn-outline-dark btn-block btn-lg" onclick="move2();"><img src="static/image/view.png" width="12%" height="12%" alt="My Image"></button>
+          </div>
+       </div>
+
+
+    </div>
+   </div>
+      
+    
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+  </body>
+</html>
