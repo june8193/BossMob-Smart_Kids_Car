@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BossMob</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/site.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="save" content="history">
+    <link rel = "Shortcut Icon" href="{% static 'favicon.ico' %} ">
+    <!-- load MUI -->
+    <link href="//cdn.muicss.com/mui-0.6.9/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="//cdn.muicss.com/mui-0.6.9/js/mui.min.js"></script>
+
+      
+
+
+    <style type="text/css">
+      html {
+        height: 100%;
+        width:  100%;
+        overflow: hidden;
+      }
+      body {
+        height: 100%;
+        width:  100%;
+      }
+    
+  
+
+      #title{
+        text-align: center;
+        letter-spacing: 0.5em;
+        /*font-size : 25px;
+        font-family:"Fantasy";*/
+      }
+      #border{
+        width: 100%;
+        height: 700px;
+        
+        border: 3px solid #000;
+      }
+    </style>
+
+    <style>
+      img { display: block; margin: 0px auto; }
+    </style>
+    <script>
+        function move1(){
+          var a1 = document.getElementById("hostip").innerText;
+          location.href='http://'+ a1 ;
+        }
+    
+        function move2(){
+          var a2 = document.getElementById("hostip").innerText;
+          location.href='http://'+ a2 +'/?action=baby';   
+        }
+    </script>
+
+    <script>
+        var e;
+        function move(){
+          setTimeout(function() {
+            e = document.getElementById("hostip").innerText;
+            location.href='http://'+e;
+          }, 10);    
+        }
+    </script>
+
+  </head>
+
+  <body>
+  <div id="ending" style="display:none;">{{ending}}</div>
+  <div id="hostip" style="display:none;">{{hostip}}</div>
+  <!-- <img src="static/image/view.png" width="6%" height="6%" alt="My Image"> -->
+  <div class="container">
+      <img src="static/image/logopa2.png" width="85%" height="85%" alt="My Image">  
+      <button type="button" class="btn btn-outline-dark btn-block btn-lg" onclick="move();">START</button>
+  </div>
+
+    
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+  </body>
+</html>
+
+
